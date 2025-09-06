@@ -59,6 +59,15 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         margin: 5px 0;
     }
+    .stButton > button[kind="primary"] {
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+        color: white !important;
+    }
+    .stButton > button[kind="primary"]:hover {
+        background-color: #218838 !important;
+        border-color: #1e7e34 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -95,6 +104,9 @@ with col2:
     
     st.subheader("Loyalty Information")
     loyalty_years = st.number_input("Loyalty Years", min_value=0, max_value=10, value=3, step=1)
+    
+    st.markdown("<br>", unsafe_allow_html=True)  # Add some spacing
+    predict_button = st.button("Predict Customer Group", type="primary", use_container_width=True)
 
 def get_age_group(age):
     if 18 <= age <= 25:
@@ -111,7 +123,6 @@ def get_age_group(age):
 age_group = get_age_group(age)
 
 st.markdown("---")
-predict_button = st.button("Predict Customer Group", type="primary", use_container_width=True)
 
 if predict_button:
     # Create a DataFrame for the new customer with all required columns
