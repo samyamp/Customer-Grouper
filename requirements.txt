@@ -5,3 +5,4 @@ jupyterlab==4.4.7
 streamlit==1.49.1
 matplotlib==3.10.6
 seaborn==0.13.2
+joblib==1.5.2
